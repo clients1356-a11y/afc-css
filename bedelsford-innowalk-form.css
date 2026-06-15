@@ -1,0 +1,703 @@
+/* ==========================================
+   BEDELSFORD SCHOOL INNOWALK CONSENT FORM
+   Custom CSS Override — v1.0.0
+   Filename: bedelsford-innowalk-form.css
+========================================== */
+
+/* ==========================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+========================================== */
+
+:root {
+  --form-primary:       #1a7a7a;   /* teal — tab active, buttons, links     */
+  --form-primary-dark:  #155f5f;   /* teal hover state                       */
+  --form-danger:        #c0392b;   /* Cancel link + Clear Signature           */
+  --form-border:        #d8dde3;   /* input/textarea borders                  */
+  --form-bg:            #f5f6f8;   /* page background                         */
+  --form-card-bg:       #ffffff;   /* card surface                            */
+  --form-text:          #1c2b36;   /* primary body text                       */
+  --form-muted:         #6b7a8a;   /* placeholder / muted text                */
+  --form-callout-bg:    #f0f4f4;   /* blockquote / callout strip              */
+  --form-callout-bar:   #1a7a7a;   /* left border on callout                  */
+  --form-radius-card:   12px;
+  --form-radius-input:  6px;
+  --form-radius-btn:    6px;
+  --form-shadow-card:   0 2px 16px rgba(0,0,0,.07);
+  --form-font:          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================
+   FORM CONTAINER
+========================================== */
+
+/* Outer page background */
+body,
+#self-content,
+.container {
+  background-color: var(--form-bg) !important;
+  font-family: var(--form-font) !important;
+  color: var(--form-text) !important;
+}
+
+/* Main card that wraps the whole form */
+#form-instance-1 .renderForm,
+.achieveforms-iframe,
+.row.renderForm {
+  background: transparent !important;
+}
+
+/* The AchieveForms iframe grows to fill its container — give the page a centred max-width */
+#self-content .container {
+  max-width: 900px !important;
+  padding-top: 40px !important;
+  padding-bottom: 60px !important;
+}
+
+/* Card wrapper injected by the renderer around each stage */
+.af-form-wrapper,
+.af-stage-wrapper,
+[class*="af-card"],
+.achieveforms-card {
+  background: var(--form-card-bg) !important;
+  border-radius: var(--form-radius-card) !important;
+  box-shadow: var(--form-shadow-card) !important;
+  border: none !important;
+  padding: 40px 48px !important;
+}
+
+/* Form title (h1 / h2 at the top of the card) */
+.af-form-title,
+.af-stage-title,
+h1.form-title,
+h2.form-title {
+  font-size: 1.65rem !important;
+  font-weight: 700 !important;
+  color: var(--form-text) !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 28px !important;
+  padding-bottom: 0 !important;
+}
+
+/* ==========================================
+   TAB NAVIGATION
+========================================== */
+
+/* Tab strip container */
+.nav-tabs,
+.af-tabs,
+ul.af-stage-tabs {
+  border-bottom: 1px solid var(--form-border) !important;
+  margin-bottom: 32px !important;
+  gap: 0 !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+}
+
+/* Individual tab links */
+.nav-tabs > li > a,
+.nav-tabs .nav-link,
+.af-tabs .nav-link,
+.af-stage-tabs li a {
+  color: var(--form-muted) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  padding: 10px 18px !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  background: none !important;
+  border-radius: 0 !important;
+  transition: color 0.2s, border-color 0.2s !important;
+  white-space: nowrap !important;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs .nav-link:hover,
+.af-tabs .nav-link:hover {
+  color: var(--form-primary) !important;
+  border-bottom-color: var(--form-border) !important;
+  background: none !important;
+}
+
+/* Active tab */
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover,
+.nav-tabs .nav-link.active,
+.af-tabs .nav-link.active,
+.af-stage-tabs li.active a {
+  color: var(--form-primary) !important;
+  border-bottom: 2px solid var(--form-primary) !important;
+  background: none !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================
+   SECTION HEADINGS (inside tabs)
+========================================== */
+
+.af-section-title,
+.form-section-title,
+h3.panel-title,
+.panel-heading h3 {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: var(--form-text) !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+/* ==========================================
+   CALLOUT / BLOCKQUOTE STRIP
+   (Introduction page "Please read…" block)
+========================================== */
+
+.af-callout,
+.af-info-block,
+blockquote.af-note,
+.alert-info.af-note,
+.form-intro-callout {
+  background: var(--form-callout-bg) !important;
+  border-left: 3px solid var(--form-callout-bar) !important;
+  border-radius: 4px !important;
+  padding: 14px 18px !important;
+  margin-bottom: 24px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  color: var(--form-text) !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================
+   FORM ROWS & COLUMNS
+========================================== */
+
+.form-group,
+.af-field-wrap {
+  margin-bottom: 20px !important;
+}
+
+/* Horizontal rule separators between field groups */
+.af-field-divider,
+hr.af-divider {
+  border-top: 1px solid var(--form-border) !important;
+  margin: 24px 0 !important;
+}
+
+/* ==========================================
+   LABELS
+========================================== */
+
+label,
+.control-label,
+.af-label {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: var(--form-text) !important;
+  margin-bottom: 6px !important;
+  display: inline-block !important;
+}
+
+/* Labels aligned left on the label column in horizontal layouts */
+.col-sm-4 > label,
+.col-md-4 > label,
+.col-sm-3 > label,
+.col-md-3 > label {
+  padding-top: 8px !important;
+}
+
+/* ==========================================
+   INPUT FIELDS
+========================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+.form-control {
+  height: 44px !important;
+  border: 1px solid var(--form-border) !important;
+  border-radius: var(--form-radius-input) !important;
+  background: #fff !important;
+  color: var(--form-text) !important;
+  font-size: 0.9rem !important;
+  padding: 0 14px !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  width: 100% !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+.form-control::placeholder {
+  color: var(--form-muted) !important;
+  opacity: 1 !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+.form-control:focus {
+  border-color: var(--form-primary) !important;
+  box-shadow: 0 0 0 3px rgba(26, 122, 122, 0.15) !important;
+  outline: none !important;
+}
+
+/* ==========================================
+   SELECT DROPDOWNS
+========================================== */
+
+select,
+select.form-control {
+  height: 44px !important;
+  border: 1px solid var(--form-border) !important;
+  border-radius: var(--form-radius-input) !important;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  color: var(--form-text) !important;
+  font-size: 0.9rem !important;
+  padding: 0 40px 0 14px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+}
+
+select:focus,
+select.form-control:focus {
+  border-color: var(--form-primary) !important;
+  box-shadow: 0 0 0 3px rgba(26, 122, 122, 0.15) !important;
+  outline: none !important;
+}
+
+/* ==========================================
+   TEXTAREAS
+========================================== */
+
+textarea,
+textarea.form-control {
+  border: 1px solid var(--form-border) !important;
+  border-radius: var(--form-radius-input) !important;
+  background: #fff !important;
+  color: var(--form-text) !important;
+  font-size: 0.9rem !important;
+  padding: 12px 14px !important;
+  min-height: 100px !important;
+  resize: vertical !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  width: 100% !important;
+}
+
+textarea:focus,
+textarea.form-control:focus {
+  border-color: var(--form-primary) !important;
+  box-shadow: 0 0 0 3px rgba(26, 122, 122, 0.15) !important;
+  outline: none !important;
+}
+
+/* Signature pad box */
+.af-signature-pad,
+.signature-pad,
+canvas.signature-canvas {
+  border: 1px solid var(--form-border) !important;
+  border-radius: var(--form-radius-input) !important;
+  width: 100% !important;
+  min-height: 100px !important;
+  background: #fff !important;
+}
+
+/* "Clear Signature" link */
+a.af-clear-signature,
+.clear-signature,
+[data-action="clear-signature"] {
+  color: var(--form-danger) !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-top: 6px !important;
+}
+
+a.af-clear-signature:hover,
+.clear-signature:hover {
+  text-decoration: underline !important;
+}
+
+/* "Your Name" read-only display field */
+.af-readonly-name,
+.af-your-name {
+  color: var(--form-muted) !important;
+  font-size: 0.9rem !important;
+}
+
+/* ==========================================
+   RADIO BUTTONS
+========================================== */
+
+/* Radio group container */
+.af-radio-group,
+.radio-group,
+.btn-group-radio {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+/* Each radio option rendered as a pill button (matches design) */
+.af-radio-option,
+.radio-option,
+.btn-radio {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 9px 18px !important;
+  border: 1px solid var(--form-border) !important;
+  border-radius: var(--form-radius-input) !important;
+  background: #fff !important;
+  cursor: pointer !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: var(--form-text) !important;
+  transition: border-color 0.2s, background 0.2s !important;
+  min-width: 120px !important;
+}
+
+.af-radio-option input[type="radio"],
+.radio-option input[type="radio"],
+.btn-radio input[type="radio"] {
+  accent-color: var(--form-primary) !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Selected state — teal border + light teal background */
+.af-radio-option.selected,
+.af-radio-option:has(input:checked),
+.radio-option:has(input:checked),
+.btn-radio:has(input:checked) {
+  border-color: var(--form-primary) !important;
+  background: rgba(26, 122, 122, 0.07) !important;
+  color: var(--form-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* Fallback for browsers without :has() */
+input[type="radio"]:checked + label {
+  color: var(--form-primary) !important;
+}
+
+/* ==========================================
+   CHECKBOXES
+========================================== */
+
+/* Checkbox wrapper strip */
+.af-checkbox-group,
+.checkbox-group,
+.af-declaration-checks {
+  background: #fff !important;
+  border: 1px solid var(--form-border) !important;
+  border-radius: var(--form-radius-input) !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+/* Individual checkbox row */
+.af-checkbox-item,
+.checkbox-item,
+.af-declaration-checks .checkbox {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.af-checkbox-item input[type="checkbox"],
+.checkbox-item input[type="checkbox"],
+.af-declaration-checks input[type="checkbox"] {
+  accent-color: var(--form-primary) !important;
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+  margin-top: 2px !important;
+  cursor: pointer !important;
+}
+
+.af-checkbox-item label,
+.checkbox-item label,
+.af-declaration-checks .checkbox label {
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  color: var(--form-text) !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* Privacy checkbox (tab 1) — stands alone outside the declaration strip */
+#self-content .checkbox label,
+.privacy-check label {
+  font-size: 0.875rem !important;
+  color: var(--form-text) !important;
+  line-height: 1.5 !important;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+/* Primary "Next" / "Submit" button */
+.btn-primary,
+.af-btn-next,
+.af-btn-submit,
+button[type="submit"].btn-primary,
+input[type="submit"].btn-primary {
+  background-color: var(--form-primary) !important;
+  border-color: var(--form-primary) !important;
+  color: #fff !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  padding: 10px 26px !important;
+  border-radius: var(--form-radius-btn) !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s, border-color 0.2s !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.btn-primary:hover,
+.af-btn-next:hover,
+.af-btn-submit:hover {
+  background-color: var(--form-primary-dark) !important;
+  border-color: var(--form-primary-dark) !important;
+}
+
+/* Secondary "Back" button */
+.btn-default,
+.af-btn-back,
+button.btn-default {
+  background: #fff !important;
+  border: 1px solid var(--form-border) !important;
+  color: var(--form-text) !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  padding: 10px 22px !important;
+  border-radius: var(--form-radius-btn) !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s, color 0.2s !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.btn-default:hover,
+.af-btn-back:hover {
+  border-color: var(--form-primary) !important;
+  color: var(--form-primary) !important;
+  background: #fff !important;
+}
+
+/* "Cancel" danger text link */
+.af-btn-cancel,
+a.cancel-link,
+.cancel-btn {
+  color: var(--form-danger) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.af-btn-cancel:hover,
+a.cancel-link:hover {
+  text-decoration: underline !important;
+}
+
+/* Button row — space between Cancel (left) and Next (right) */
+.af-form-actions,
+.form-actions,
+.btn-toolbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: 32px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid var(--form-border) !important;
+}
+
+/* ==========================================
+   PRIVACY NOTICE LINK
+========================================== */
+
+a.privacy-link,
+.af-privacy-link,
+#self-content a[href*="privacy"] {
+  color: var(--form-primary) !important;
+  font-size: 0.875rem !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-top: 16px !important;
+}
+
+a.privacy-link:hover,
+.af-privacy-link:hover,
+#self-content a[href*="privacy"]:hover {
+  text-decoration: underline !important;
+}
+
+/* ==========================================
+   VALIDATION STATES
+========================================== */
+
+/* Field-level error */
+.has-error .form-control,
+.af-field-error input,
+.af-field-error select,
+.af-field-error textarea {
+  border-color: var(--form-danger) !important;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12) !important;
+}
+
+.has-error .control-label,
+.af-field-error label,
+.af-error-label {
+  color: var(--form-danger) !important;
+}
+
+.help-block,
+.af-error-message,
+.field-validation-error {
+  color: var(--form-danger) !important;
+  font-size: 0.8rem !important;
+  margin-top: 4px !important;
+  display: block !important;
+}
+
+/* Success state */
+.has-success .form-control,
+.af-field-success input {
+  border-color: #27ae60 !important;
+}
+
+/* ==========================================
+   ALERT / WARNING MESSAGES
+========================================== */
+
+#IE8Message,
+.alert-warning {
+  border-radius: var(--form-radius-input) !important;
+  font-size: 0.875rem !important;
+}
+
+/* Loading spinner */
+.AchieveFormsLoading {
+  text-align: center !important;
+  padding: 40px 0 !important;
+  color: var(--form-muted) !important;
+}
+
+/* ==========================================
+   RESPONSIVE STYLES
+========================================== */
+
+/* Tablet (≤ 768px) */
+@media (max-width: 768px) {
+  .af-form-wrapper,
+  .af-stage-wrapper,
+  [class*="af-card"],
+  .achieveforms-card {
+    padding: 28px 24px !important;
+    border-radius: 8px !important;
+  }
+
+  .af-form-title,
+  h1.form-title,
+  h2.form-title {
+    font-size: 1.3rem !important;
+  }
+
+  .nav-tabs,
+  .af-tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .nav-tabs > li > a,
+  .nav-tabs .nav-link {
+    padding: 10px 12px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .af-radio-group,
+  .radio-group {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .af-radio-option,
+  .radio-option,
+  .btn-radio {
+    min-width: unset !important;
+    width: 100% !important;
+  }
+
+  .af-form-actions,
+  .form-actions {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+}
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .af-form-wrapper,
+  .af-stage-wrapper,
+  [class*="af-card"],
+  .achieveforms-card {
+    padding: 20px 16px !important;
+  }
+
+  .af-form-title,
+  h1.form-title,
+  h2.form-title {
+    font-size: 1.15rem !important;
+  }
+
+  .nav-tabs > li > a,
+  .nav-tabs .nav-link {
+    padding: 8px 10px !important;
+    font-size: 0.75rem !important;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  .form-control,
+  select,
+  select.form-control {
+    height: 42px !important;
+    font-size: 0.875rem !important;
+  }
+
+  .btn-primary,
+  .af-btn-next,
+  .af-btn-submit,
+  .btn-default,
+  .af-btn-back {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px !important;
+  }
+}
